@@ -8,11 +8,12 @@ function CreateArea(props) {
 
   function holdNoteValue(event) {
     //get name & value of target element
-    //it will be either title input or content textArea
+    //it will be either title(input) or content(textArea)
     const { name, value } = event.target;
 
     setNote((preValue) => {
       //return object with previous value but overwrite given element value
+      //means: if title is changed, overwrite title and if content is changed...
       return { ...preValue, [name]: value };
     });
   }
@@ -27,6 +28,7 @@ function CreateArea(props) {
             title: "",
             content: "",
           });
+          //prevent form to refresh whole page
           e.preventDefault();
         }}
       >
